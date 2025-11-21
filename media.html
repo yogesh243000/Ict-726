@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Media | Attend &amp; Achieve</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="Primary navigation">
+      <nav class="nav">
+        <a class="brand" href="index.html"><span aria-hidden="true"></span>Attend &amp; Achieve</a>
+        <div class="nav-links" role="menubar">
+          <a role="menuitem" href="index.html">Home</a>
+          <a role="menuitem" href="about.html">About</a>
+          <a role="menuitem" href="services.html">Modules</a>
+          <a role="menuitem" href="media.html" aria-current="page">Media</a>
+          <a role="menuitem" href="contact.html">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="page">
+      <section class="panel" aria-labelledby="gallery-title">
+        <h1 id="gallery-title">Media highlights</h1>
+        <p>
+          Tap a thumbnail to explore the gallery. All imagery uses descriptive alt text for accessibility.
+        </p>
+        <div class="gallery">
+          <div class="gallery-main">
+            <img
+              id="main-image"
+              src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80"
+              alt="Teacher marking attendance on a tablet"
+            />
+            <p id="main-caption" class="hint" aria-live="polite">
+              Teacher marking attendance on a tablet.
+            </p>
+          </div>
+          <div class="thumbnails" role="list">
+            <button
+              type="button"
+              aria-label="Teacher marking attendance on a tablet"
+              data-full="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80"
+              data-caption="Teacher marking attendance on a tablet."
+            >
+              <img
+                src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=300&q=60"
+                alt=""
+              />
+            </button>
+            <button
+              type="button"
+              aria-label="Students collaborating on laptops"
+              data-full="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1000&q=80"
+              data-caption="Students collaborating on laptops during a group project."
+            >
+              <img
+                src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=300&q=60"
+                alt=""
+              />
+            </button>
+            <button
+              type="button"
+              aria-label="Analytics dashboard with charts"
+              data-full="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1000&q=80"
+              data-caption="Analytics dashboard showing attendance and grade trends."
+            >
+              <img
+                src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=300&q=60"
+                alt=""
+              />
+            </button>
+            <button
+              type="button"
+              aria-label="Parent checking alerts on a phone"
+              data-full="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1000&q=80"
+              data-caption="Parent reviewing attendance alerts on a mobile phone."
+            >
+              <img
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=300&q=60"
+                alt=""
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="media-extras">
+        <h2 id="media-extras">Product walkthrough</h2>
+        <div class="grid two">
+          <article class="card">
+            <h3>Video demo</h3>
+            <video
+              controls
+              width="100%"
+              aria-label="Short walkthrough of attendance scanning"
+              style="border-radius: 12px"
+            >
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+            <p class="hint">
+              Quick overview of marking attendance and sending a guardian alert from the same screen.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Audio snippet</h3>
+            <audio controls aria-label="Voiceover describing the analytics module">
+              <source
+                src="https://interactive-examples.mdn.mozilla.net/media/cc0-audio/t-rex-roar.mp3"
+                type="audio/mpeg"
+              />
+              Your browser does not support the audio element.
+            </audio>
+            <p class="hint">
+              Sample narration that explains how attendance and grade signals roll into wellbeing flags.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="page">
+        <p>&copy; 2025 Attend &amp; Achieve. Built for student success.</p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var main = document.getElementById("main-image");
+        var caption = document.getElementById("main-caption");
+        var thumbnails = document.querySelectorAll(".thumbnails button");
+
+        thumbnails.forEach(function (thumb) {
+          thumb.addEventListener("click", function () {
+            var newSrc = thumb.getAttribute("data-full");
+            var newCaption = thumb.getAttribute("data-caption");
+            main.src = newSrc;
+            main.alt = newCaption;
+            caption.textContent = newCaption;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
