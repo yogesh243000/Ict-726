@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week 4 Draft Wireframes - Attend &amp; Achieve</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background: #f3f4f6;
+        padding: 20px;
+      }
+
+      body {
+        color: #0f172a;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 0;
+        border-bottom: 2px solid #111827;
+        margin-bottom: 14px;
+      }
+
+      header h1 {
+        font-size: 1.4rem;
+      }
+
+      header .meta {
+        text-align: right;
+        font-size: 0.9rem;
+        color: #475569;
+      }
+
+      main {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin: 20px 0 12px;
+      }
+
+      .box {
+        border: 2px solid #111;
+        background: #fff;
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 6px;
+      }
+
+      .label {
+        font-weight: bold;
+        margin-bottom: 8px;
+      }
+
+      /* Global layout */
+      .global-layout {
+        border: 2px dashed #4b5563;
+        padding: 16px;
+        margin-bottom: 30px;
+        background: #f9fafb;
+      }
+
+      .header-bar,
+      .footer-bar {
+        border: 2px solid #111;
+        padding: 10px;
+        margin-bottom: 8px;
+        background: #e5e7eb;
+      }
+
+      .header-content,
+      .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.9rem;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .page-content-placeholder {
+        border: 2px dashed #9ca3af;
+        padding: 40px;
+        text-align: center;
+        margin: 8px 0;
+        color: #6b7280;
+        font-weight: bold;
+      }
+
+      /* Home page wireframe */
+      .two-col {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .thumb-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .pill {
+        display: inline-block;
+        padding: 4px 10px;
+        background: #e0f2fe;
+        border: 1px solid #0ea5e9;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        margin-right: 6px;
+        margin-bottom: 6px;
+      }
+
+      .note {
+        background: #ecfeff;
+        border: 1px dashed #0891b2;
+        padding: 10px 12px;
+        font-size: 0.92rem;
+        border-radius: 6px;
+        color: #0f172a;
+      }
+
+      ul.checklist {
+        padding-left: 16px;
+        margin: 8px 0;
+      }
+
+      ul.checklist li {
+        margin: 4px 0;
+      }
+
+      footer {
+        margin: 30px 0 10px;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #475569;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Week 4 Draft Wireframes — Attend &amp; Achieve</h1>
+        <div class="meta">
+          School Attendance &amp; Grade Management System<br />
+          Pages planned: Home, About, Modules, Media, Contact
+        </div>
+      </header>
+
+      <div class="section-title">A. Global layout (header & footer)</div>
+      <div class="global-layout">
+        <div class="header-bar">
+          <div class="header-content">
+            <span>[Logo: Attend &amp; Achieve]</span>
+            <span>[Nav: Home | About | Modules | Media | Contact]</span>
+            <span class="pill">Sticky</span>
+            <span class="pill">Keyboard focus visible</span>
+          </div>
+        </div>
+
+        <div class="page-content-placeholder">(Page Content Goes Here)</div>
+
+        <div class="footer-bar">
+          <div class="footer-content">
+            <span>© 2025 Attend &amp; Achieve</span>
+            <span>[Email] [Social icons] [Privacy link]</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">B. Home page (index.html)</div>
+      <div class="box">
+        <div class="label">Hero</div>
+        <div class="two-col">
+          <div class="box" style="background:#eef2ff">
+            <p><strong>H1:</strong> School Attendance &amp; Grade Management System</p>
+            <p><strong>Copy:</strong> 25–40 words on benefits; CTA button “Book a demo”.</p>
+            <p><span class="pill">Badge</span><span class="pill">Stats row</span></p>
+          </div>
+          <div class="page-content-placeholder">Hero image (classroom / dashboard)</div>
+        </div>
+
+        <div class="label" style="margin-top:12px">Featured modules (3-column)</div>
+        <div class="grid-3">
+          <div class="page-content-placeholder">Attendance card</div>
+          <div class="page-content-placeholder">Gradebook card</div>
+          <div class="page-content-placeholder">Analytics card</div>
+        </div>
+
+        <div class="label" style="margin-top:12px">Design notes</div>
+        <div class="note">
+          Include CSS transitions on cards, gradient hero background, shadow depth, and responsive grid that becomes single column on mobile.
+        </div>
+      </div>
+
+      <div class="section-title">C. About page (about.html)</div>
+      <div class="box">
+        <div class="two-col">
+          <div class="page-content-placeholder">Founders story / mission text block</div>
+          <div class="page-content-placeholder">Team / workshop image</div>
+        </div>
+        <div class="label" style="margin-top:12px">Principles (cards)</div>
+        <div class="grid-3">
+          <div class="page-content-placeholder">Accessibility first</div>
+          <div class="page-content-placeholder">Privacy &amp; safety</div>
+          <div class="page-content-placeholder">Responsive support</div>
+        </div>
+      </div>
+
+      <div class="section-title">D. Modules page (services.html)</div>
+      <div class="box">
+        <div class="two-col">
+          <div class="page-content-placeholder">Intro copy + CTA</div>
+          <div class="page-content-placeholder">Dashboard image</div>
+        </div>
+        <div class="label" style="margin-top:12px">Module tiles</div>
+        <div class="grid-3">
+          <div class="page-content-placeholder">Attendance</div>
+          <div class="page-content-placeholder">Gradebook</div>
+          <div class="page-content-placeholder">Messaging</div>
+          <div class="page-content-placeholder">Analytics</div>
+          <div class="page-content-placeholder">Wellbeing signals</div>
+          <div class="page-content-placeholder">Audit-ready</div>
+        </div>
+        <div class="note" style="margin-top:10px">
+          Tag chips under each tile; hover lift on cards; mobile collapses to single column.
+        </div>
+      </div>
+
+      <div class="section-title">E. Media page (media.html)</div>
+      <div class="box">
+        <div class="label">Gallery grid</div>
+        <div class="thumb-grid">
+          <div class="page-content-placeholder">Thumb 1</div>
+          <div class="page-content-placeholder">Thumb 2</div>
+          <div class="page-content-placeholder">Thumb 3</div>
+          <div class="page-content-placeholder">Thumb 4</div>
+          <div class="page-content-placeholder">Thumb 5</div>
+          <div class="page-content-placeholder">Thumb 6</div>
+          <div class="page-content-placeholder">Thumb 7</div>
+          <div class="page-content-placeholder">Thumb 8</div>
+        </div>
+        <div class="note" style="margin-top:10px">
+          Clicking a thumbnail updates a main image and caption; include video + audio sections beneath gallery.
+        </div>
+      </div>
+
+      <div class="section-title">F. Contact page (contact.html)</div>
+      <div class="box">
+        <div class="two-col">
+          <div class="box" style="background:#f9fafb">
+            <div class="label">Contact details</div>
+            <p>Phone, email, address, social links, map frame.</p>
+          </div>
+          <div class="box" style="background:#f9fafb">
+            <div class="label">Contact form</div>
+            <ul class="checklist">
+              <li>Fields: name, email, role select, modules text, message textarea.</li>
+              <li>HTML5 validation + JS error feedback.</li>
+              <li>Success message + reset on valid submission.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="note" style="margin-top:8px">
+          Add aria-invalid on error, focus feedback region, and highlight invalid inputs for accessibility.
+        </div>
+      </div>
+
+      <div class="section-title">G. Accessibility, responsive, and AI notes</div>
+      <div class="box">
+        <ul class="checklist">
+          <li>Semantic tags: header/nav/main/footer; aria-label on nav menus; alt text for all media.</li>
+          <li>Contrast-aware palette; focus states on buttons/links; skip-to-content link optional.</li>
+          <li>Responsive: grids collapse to single column under 900px; fluid images; clamp for hero text.</li>
+          <li>CSS3 features: gradients, shadows, hover transforms, transitions, rounded corners.</li>
+          <li>Media: min 3 types (images, video, audio) and a click-to-swap gallery.</li>
+        </ul>
+        <div class="note" style="margin-top:8px">
+          AI usage: initial content prompts and layout ideas were drafted with AI then customized for copy, navigation, validation flow, and accessibility cues. Final code and styling will be authored manually.
+        </div>
+      </div>
+
+      <div class="section-title">H. Page-by-page notes</div>
+      <div class="box">
+        <ul class="checklist">
+          <li><strong>Home (index.html):</strong> First impression page; states business name, short pitch, hero CTA, and quick highlights that guide visitors to modules and contact.</li>
+          <li><strong>About (about.html):</strong> Origin story, mission, and principles; builds trust by showing experience, accessibility stance, and support approach.</li>
+          <li><strong>Modules (services.html):</strong> Explains the product features (attendance, gradebook, analytics, messaging, wellbeing, audits) with tags for key capabilities and an invite to book a walkthrough.</li>
+          <li><strong>Media (media.html):</strong> Visual proof of the platform; thumbnail grid that swaps a main image, plus embedded video/audio to demonstrate flows.</li>
+          <li><strong>Contact (contact.html):</strong> Provides direct contact details, social links, location visual, and a validated form with user feedback for demo or enquiry requests.</li>
+        </ul>
+      </div>
+
+      <footer>
+        Draft prepared for Week 4 milestone — ready to implement into HTML/CSS/JS pages.
+      </footer>
+    </main>
+  </body>
+</html>

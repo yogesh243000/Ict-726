@@ -217,6 +217,11 @@ a:hover {
   display: block;
 }
 
+.hint {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
 .list-columns {
   column-count: 2;
   column-gap: 1.6rem;
@@ -277,6 +282,56 @@ a:hover {
   display: block;
 }
 
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) 1.1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.contact-card {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.contact-list li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+  color: var(--text);
+}
+
+.contact-list strong {
+  min-width: 72px;
+}
+
+.social-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.map-frame {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.map-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .form {
   display: grid;
   gap: 1rem;
@@ -310,6 +365,11 @@ a:hover {
 .form-row textarea:focus,
 .form-row select:focus {
   outline: 2px solid var(--accent);
+}
+
+.input-error {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 2px rgba(252, 191, 73, 0.2);
 }
 
 .btn {
@@ -398,6 +458,10 @@ a:hover {
   }
 
   .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
     grid-template-columns: 1fr;
   }
 }

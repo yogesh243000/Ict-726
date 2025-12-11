@@ -41,58 +41,87 @@
         </div>
       </section>
 
-      <section class="panel" aria-labelledby="form-title">
-        <h2 id="form-title">Contact form</h2>
-        <div id="form-feedback" role="alert" aria-live="assertive" class="hint"></div>
-        <form id="contact-form" class="form" novalidate>
-          <div class="form-row">
-            <label for="name">Full name <span aria-hidden="true">*</span></label>
-            <input id="name" name="name" type="text" autocomplete="name" required />
+      <section class="panel" aria-labelledby="contact-block">
+        <h2 id="contact-block">Contact our team</h2>
+        <div class="contact-grid">
+          <div class="card contact-card">
+            <h3>Reach us directly</h3>
+            <p class="hint">
+              Prefer to talk? Use the details below or connect on your favorite channel.
+            </p>
+            <ul class="contact-list">
+              <li><strong>Phone</strong> <a href="tel:+61234567890">+61 (02) 3456 7890</a></li>
+              <li><strong>Email</strong> <a href="mailto:hello@attend-achieve.edu.au">hello@attend-achieve.edu.au</a></li>
+              <li><strong>Address</strong> 88 Harbour Street, Sydney NSW</li>
+            </ul>
+            <div class="social-links" aria-label="Social media">
+              <a href="https://www.linkedin.com/company/attend-achieve" aria-label="Visit our LinkedIn profile">LinkedIn</a>
+              <a href="https://twitter.com" aria-label="Visit our Twitter profile">X (Twitter)</a>
+              <a href="https://facebook.com" aria-label="Visit our Facebook page">Facebook</a>
+            </div>
+            <div class="map-frame" role="img" aria-label="Map of our Sydney office area">
+              <img
+                src="https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=900&q=75"
+                alt="Aerial view of a modern campus district in Sydney"
+                loading="lazy"
+              />
+            </div>
           </div>
-          <div class="form-row">
-            <label for="email">Work email <span aria-hidden="true">*</span></label>
-            <input id="email" name="email" type="email" autocomplete="email" required />
+
+          <div>
+            <h3 id="form-title">Send a message</h3>
+            <div id="form-feedback" role="alert" aria-live="assertive" class="hint" tabindex="-1"></div>
+            <form id="contact-form" class="form" aria-labelledby="form-title" novalidate>
+              <div class="form-row">
+                <label for="name">Full name <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="form-row">
+                <label for="email">Work email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="form-row">
+                <label for="role">Role</label>
+                <select id="role" name="role" aria-label="Select your role">
+                  <option value="Principal">Principal</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="IT Lead">IT Lead</option>
+                  <option value="Parent">Parent</option>
+                </select>
+              </div>
+              <div class="form-row">
+                <label for="modules">Interested modules</label>
+                <input
+                  id="modules"
+                  name="modules"
+                  type="text"
+                  placeholder="Attendance, Gradebook, Analytics..."
+                  aria-describedby="modules-help"
+                />
+                <span id="modules-help" class="hint">Comma-separated list is fine.</span>
+              </div>
+              <div class="form-row">
+                <label for="message">Message <span aria-hidden="true">*</span></label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="4"
+                  minlength="20"
+                  required
+                  aria-describedby="message-help"
+                ></textarea>
+                <span id="message-help" class="hint">Share goals, timelines, or current tools (min 20 characters).</span>
+              </div>
+              <div class="form-row">
+                <label aria-label="Subscribe to updates">
+                  <input type="checkbox" id="updates" name="updates" />
+                  Keep me updated with monthly tips
+                </label>
+              </div>
+              <button class="btn" type="submit">Send message</button>
+            </form>
           </div>
-          <div class="form-row">
-            <label for="role">Role</label>
-            <select id="role" name="role" aria-label="Select your role">
-              <option value="Principal">Principal</option>
-              <option value="Teacher">Teacher</option>
-              <option value="IT Lead">IT Lead</option>
-              <option value="Parent">Parent</option>
-            </select>
-          </div>
-          <div class="form-row">
-            <label for="modules">Interested modules</label>
-            <input
-              id="modules"
-              name="modules"
-              type="text"
-              placeholder="Attendance, Gradebook, Analytics..."
-              aria-describedby="modules-help"
-            />
-            <span id="modules-help" class="hint">Comma-separated list is fine.</span>
-          </div>
-          <div class="form-row">
-            <label for="message">Message <span aria-hidden="true">*</span></label>
-            <textarea
-              id="message"
-              name="message"
-              rows="4"
-              minlength="20"
-              required
-              aria-describedby="message-help"
-            ></textarea>
-            <span id="message-help" class="hint">Share goals, timelines, or current tools (min 20 characters).</span>
-          </div>
-          <div class="form-row">
-            <label aria-label="Subscribe to updates">
-              <input type="checkbox" id="updates" name="updates" />
-              Keep me updated with monthly tips
-            </label>
-          </div>
-          <button class="btn" type="submit">Send message</button>
-        </form>
+        </div>
       </section>
     </main>
 
@@ -106,14 +135,31 @@
       (function () {
         var form = document.getElementById("contact-form");
         var feedback = document.getElementById("form-feedback");
+        var fields = [form.name, form.email, form.message];
 
         function setFeedback(message, isError) {
           feedback.textContent = message;
           feedback.style.color = isError ? "#fcbf49" : "#6fe3cf";
+          if (message) {
+            feedback.focus();
+          }
+        }
+
+        function resetFieldStates() {
+          fields.forEach(function (field) {
+            field.classList.remove("input-error");
+            field.removeAttribute("aria-invalid");
+          });
+        }
+
+        function markError(field) {
+          field.classList.add("input-error");
+          field.setAttribute("aria-invalid", "true");
         }
 
         form.addEventListener("submit", function (event) {
           event.preventDefault();
+          resetFieldStates();
           var name = form.name.value.trim();
           var email = form.email.value.trim();
           var message = form.message.value.trim();
@@ -121,16 +167,20 @@
 
           if (!name) {
             errors.push("Name is required.");
+            markError(form.name);
           }
           if (!email || !email.includes("@")) {
             errors.push("Enter a valid email address.");
+            markError(form.email);
           }
           if (message.length < 20) {
             errors.push("Message should be at least 20 characters.");
+            markError(form.message);
           }
 
           if (errors.length) {
             setFeedback(errors.join(" "), true);
+            form.reportValidity();
             return false;
           }
 
